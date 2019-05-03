@@ -1,0 +1,5 @@
+name: craigslist
+channels:
+- defaults
+dependencies:
+- beautifulsoup4
