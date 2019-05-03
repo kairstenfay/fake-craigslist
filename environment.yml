@@ -3,3 +3,4 @@ channels:
 - defaults
 dependencies:
 - beautifulsoup4
+- requests
