@@ -23,7 +23,8 @@ def main():
         # var pID
         # if id="has_been_removed":
         # like with 'https://seattle.craigslist.org/see/mis/d/seattle-what-free-really-feels-like/6879541375.html'
-    print(json.dumps(store, indent=4))
+    with open('output.json', 'w') as outfile:
+        json.dump(store, outfile, indent=4)
 
 
 def get_post_list(url: str) -> list:
@@ -52,6 +53,8 @@ def get_content(post) -> str:
 def get_geo(post) -> str:
     """
     Given a BeautifulSoup object *post*, returns the affiliated city
+    Mostly are real locations, but some suspicious labels,
+    May want to extract from subdomain or lat/long
     """
     geo = post.find_all("meta", {"name" : "geo.placename"})
     if geo:
